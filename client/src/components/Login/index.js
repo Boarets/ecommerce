@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FormGroup, Input, Button, Row, Col } from 'reactstrap'
 import axios from 'axios'
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
 import { storeUser } from '../../helpers'
 
@@ -13,19 +13,19 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleChange = ({ target }) => {
-    const {name, value} = target
+    const { name, value } = target
     setUser((currentUser) => ({
       ...currentUser,
       [name]: value,
     }))
   };
 
-  const handleLogin = async () => { 
+  const handleLogin = async () => {
     const url = `http://localhost:1337/api/auth/local`
     try {
-      if(user.identifier && user.password) {
-        const {data} = await axios.post(url, user)
-        if(data.jwt) {
+      if (user.identifier && user.password) {
+        const { data } = await axios.post(url, user)
+        if (data.jwt) {
           storeUser(data)
           toast.success('Logged in successfully')
           setUser(initialUser)

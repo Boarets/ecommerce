@@ -8,6 +8,7 @@ import Logout from './components/Logout'
 import Registration from './components/Registration'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { Protector } from './helpers'
 
 
 const App = () => {
@@ -15,7 +16,7 @@ const App = () => {
     <Container fluid>
       <Router>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Protector Component={Home}/>} />
           <Route path='/login' element={<Login />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/registration' element={<Registration />} />
