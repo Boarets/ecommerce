@@ -22,7 +22,7 @@ const App = () => {
           <Route path='/' element={<Protector Component={Home}/>} />
           <Route path='/login' element={<Login />} />
           <Route path='/logout' element={<Logout />} />
-          <Route path='/product-details' element={<ProductView />} />
+          <Route path='/product-details/:id' element={<ProductView />} />
           <Route path='/registration' element={<Registration />} />
         </Routes>
         <ToastContainer />

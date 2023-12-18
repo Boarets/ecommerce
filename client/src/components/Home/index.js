@@ -27,7 +27,7 @@ const Home = () => {
                 <Row >
                   {hasProducts.map((product) => (
                     <Col key={product.id}>
-                      <Link to={`product-details/${product.id}`}>
+                      <Link to={`/product-details/${product.id}`}>
                         <Product product={product} />
                       </Link>
                     </Col>
