@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 export const useProductView = () => {
     const { id: productId } = useParams();
-    const [product, setProduct] = useState({}),
+    const [product, setProduct] = useState({});
     const [selectedColor, setSelectedColor] = useState('')
     const [selectedSize, setSelectedSize] = useState('')
     const [selectedQuantity, setSelectedQuantity] = useState(1)
@@ -16,16 +16,16 @@ export const useProductView = () => {
 
     const getImage = (colour) => {
         const { attributes } = product;
-        // const imagesData = attributes.images ? attributes.images.data : [];
-        const image = attributes.images.data.find(image => image.attributes.name.includes(colour))
-        return image.attributes.url || '';
+        const image = attributes.images.data.find(image =>
+            image.attributes.name.includes(colour));
+        return image?.attributes?.url || '';
     };
 
     useEffect(() => {
         if (product && product.attributes) {
             const { attributes } = product;
-            setSelectedColor(attributes.colours[0])
-            setSelectedSize(attributes.sizes[0])
+            setSelectedColor(attributes.colours[0].name);
+            setSelectedSize(attributes.colours[0].name)
         }
     }, [product, setSelectedColor, setSelectedSize])
 
@@ -33,7 +33,11 @@ export const useProductView = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const { data: { data } } = await axios.get(`http://localhost:1337/api/${product.id}?populate=*`)
+                const {
+                    data: { data },
+                } = await axios.get(
+                    `http://localhost:1337/api/products/${productId}?populate=*`
+                );
                 setProduct(data)
             } catch (error) {
                 console.log({ error });
@@ -55,7 +59,4 @@ export const useProductView = () => {
         setSelectedColor,
         handleQuantityChange
     }
-
-
-
 }

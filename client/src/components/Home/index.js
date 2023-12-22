@@ -7,14 +7,13 @@ import Product from './Product'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
-  const { username } = userData()
-
   const { categories, products } = useProducts();
+  const { username } = userData()
 
   return (
     <Container>
       <div>
-        <h2 className='text-center'>Welcome {username}, Enjoy our sales!</h2>
+        <h2 className='text-center'>Enjoy our sales!</h2>
         {
           categories.length &&
           categories.map((category) => {
@@ -22,11 +21,11 @@ const Home = () => {
               (product) => product.attributes.category.data.id === category.id
             );
             return hasProducts && hasProducts.length ? (
-              <div key={category.id} >
+              <div key={category.id} className='mb-5'>
                 <h2>{category.attributes.name}</h2>
-                <Row >
+                <Row>
                   {hasProducts.map((product) => (
-                    <Col key={product.id}>
+                    <Col key={product.id} sm='6' md='3'>
                       <Link to={`/product-details/${product.id}`}>
                         <Product product={product} />
                       </Link>

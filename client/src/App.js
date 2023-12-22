@@ -11,23 +11,28 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { Protector } from './helpers'
 import CustomNav from './components/CustomNav'
+import Basket from './components/basket'
 
 
 const App = () => {
-  return (    
-    <Container>
-      <CustomNav/>
-      <Router>
-        <Routes>
-          <Route path='/' element={<Protector Component={Home}/>} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/logout' element={<Logout />} />
-          <Route path='/product-details/:id' element={<ProductView />} />
-          <Route path='/registration' element={<Registration />} />
-        </Routes>
-        <ToastContainer />
-      </Router>
-    </Container>
+  return (
+    <>
+      <CustomNav />
+      <Container>
+        <Router>
+          <Routes>
+            <Route path='/' element={<Protector Component={Home} />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/logout' element={<Logout />} />
+            <Route path='/product-details/:id' element={<ProductView />} />
+            <Route path='/registration' element={<Registration />} />
+            <Route path='/basket' element={<Basket />} />
+          </Routes>
+          <ToastContainer />
+        </Router>
+      </Container>
+    </>
+
   )
 }
 

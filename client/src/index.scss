@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  a{
+    text-decoration: none;
+  }
 }
 
 code {
@@ -15,19 +19,98 @@ code {
 
 
 
-.login{
+.login {
   min-height: 100vh;
   align-items: center;
   background-color: lightcoral;
 }
 
-.registration{
+.registration {
   min-height: 100vh;
   align-items: center;
   background-color: bisque;
 }
 
-// .main-page{
-//   display: flex;
-//   columns: 4;
-// }
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
+  img {
+    height: 250px;
+    width: auto;
+  }
+}
+
+.product-details {
+  margin-top: 20px;
+}
+
+.product-details .image-wrapper {
+  width: auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-details img {
+  width: auto;
+  max-width: -webkit-fill-available;
+}
+
+.product-details .card-body {
+  padding: 0 15px;
+}
+
+.product-details .card-subtitle {
+  margin-bottom: 10px;
+}
+
+.product-details .sizes {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.product-details .sizes span {
+  margin-right: 10px;
+  border-radius: 100%;
+  display: flex;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  padding: px;
+}
+
+.product-details .sizes .active {
+  color: #fff;
+  background-color: red;
+}
+
+.product-details .colours {
+  margin-bottom: 10px;
+}
+
+.product-details .colours span {
+  margin-right: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.product-details .colours span img {
+  width: 90px;
+  max-height: 90px;
+  padding: 10px;
+  border-radius: 100%;
+}
+
+.product-details .quantity {
+  max-width: 200px;
+}

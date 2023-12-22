@@ -15,14 +15,14 @@ const useProducts = () => {
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
     const fetchProducts = async () => {
         try {
             const {
                 data: { data },
             } = await axios.get("http://localhost:1337/api/products?populate=*");
-            setProducts(data)
+            setProducts(data);
         } catch (error) {
             console.log(error);
         }
